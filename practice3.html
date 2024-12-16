@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="practice3.css">
+</head>
+<body>
+    <div>
+       <h1>Simple DOM Todo App</h1>
+       <input type="text" id="inputfield" placeholder="typing" >
+       <button class="btn">Cilick me</button>
+       <div class="todofirst">
+
+       </div>
+    </div>
+    <script>
+        let inputEle = document.getElementById("inputfield");
+        let btnEle = document.querySelector(".btn");
+        let firsttodo = document.querySelector(".todofirst");
+    
+    
+        const addTodo = () =>{
+               let pEle = document.createElement("p");
+               pEle.textContent = inputEle.value;
+               console.log(pEle);
+               firsttodo.append(pEle);
+     
+               inputEle.value = "";
+    
+        }
+    
+        btnEle.addEventListener("click", ()=>{
+            addTodo();
+        })
+    
+        firsttodo.addEventListener("click", (event)=>{
+            console.log(event.target);
+            let curEle = event.target;
+            curEle.remove();
+        })
+        
+    </script>
+</body>
+</html>
